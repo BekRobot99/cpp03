@@ -12,7 +12,7 @@
 
 C++ = c++
 FLAGS = -Wall -Wextra -Werror -std=c++17 -pedantic
-FILES = 	main.cpp ClapTrap.cpp ScavTrap.cpp
+FILES = 	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJ = $(FILES:.cpp=.o)
 
