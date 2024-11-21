@@ -6,7 +6,7 @@
 /*   By: abekri <abekri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 20:39:29 by abekri            #+#    #+#             */
-/*   Updated: 2024/11/17 13:15:10 by abekri           ###   ########.fr       */
+/*   Updated: 2024/11/21 01:03:03 by abekri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,13 @@ ClapTrap::~ClapTrap() {
     std::cout << "ClapTrap " << name << " has been destroyed.\n";
 }
 
-
-void	ClapTrap::attack(const std::string &target)
-{
-	if (this->_energy_pts > 0 && this->_hit_pts > 0)
-	{
-		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_dmg << " points of damage!" << std::endl;
-		this->_energy_pts--;
-	}
-	else if (this->_energy_pts == 0)
-		std::cout << "\033[31mClapTrap " << this->_name << " is not able to attack " << target << ", because he has no energy points left.\033[0m" << std::endl;
-	else
-		std::cout << "\033[31mClapTrap " << this->_name << " is not able to attack " << target << ", because he has not enough hit points.\033[0m" << std::endl;
-}
 void ClapTrap::attack(const std::string& target) {
     if (hitPoints > 0 && energyPoints > 0) {
         std::cout << "ClapTrap " << name << " attacks " << target
                   << ", causing " << attackDamage << " points of damage!\n";
         energyPoints--;
     }
-	else if (hit_points == 0)
+	else if (hitPoints == 0)
 	{
 		std::cout << name << " is already dead and can not attack someone." << std::endl;
 	}
@@ -72,7 +59,7 @@ void ClapTrap::attack(const std::string& target) {
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
-	if (hit_points == 0 && amount != 0)
+	if (hitPoints == 0 && amount != 0)
 		std::cout << name << " is already dead and can not be more demaged" << ".\n";
     else if (hitPoints > 0) {
         hitPoints -= amount;
@@ -83,7 +70,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	if (this->_hit_points == 0)
+	if (this->hitPoints == 0)
 		std::cout << name << " is already dead and can not be rapaired" << ".\n";
     else if (hitPoints > 0 && energyPoints > 0) {
         hitPoints += amount;
